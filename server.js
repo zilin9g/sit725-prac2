@@ -26,7 +26,7 @@ var server = app.listen(3000, function () {
 
   var host = server.address().address
   var port = server.address().port
-
+//print host
   console.log("App is listening on http://%s:%s", host, port)
 
 })
