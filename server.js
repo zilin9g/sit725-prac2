@@ -1,15 +1,24 @@
+
 var express = require('express');
 var app = express();
+app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/public/views');
+// Mapping the EJS template engine to ".html" files
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 app.get('/', function (req, res) {
-   res.send('Hello World');
+  res.render("index.html");
 })
 app.get('/addNumber', function (req, res) {
-    var first=+req.query.first_num;
-    var second=+req.query.second_num;
+  res.writeHead(200, {
+    'Content-Type': 'application/json'
+});
+    var Number1=+req.query.Number1;
+    var Number2=+req.query.Number2;
     // 输出 JSON 格式
     response = {
-        result:(first+second)
+        result:(Number1+Number2)
     };
     res.end(JSON.stringify(response));
  })
