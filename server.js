@@ -11,9 +11,9 @@ app.get('/', function (req, res) {
   res.render("index.html");
 })
 app.get('/addNumber', function (req, res) {
-  res.writeHead(200, {
-    'Content-Type': 'application/json'
-});
+    res.writeHead(200, {
+      'Content-Type': 'application/json'
+    });
     var Number1=+req.query.Number1;
     var Number2=+req.query.Number2;
     // 输出 JSON 格式
@@ -23,6 +23,9 @@ app.get('/addNumber', function (req, res) {
     res.end(JSON.stringify(response));
  })
  app.get('/getData', function (req, res) {
+    res.writeHead(200, {
+      'Content-Type': 'application/json'
+    });
     let accounts = [ {id:1,name:'alex',deposit:5},{id:2,name:'sarah',deposit:5},{id:3,name:'jim',deposit:15}];
     // 输出 JSON 格式
     response = {
