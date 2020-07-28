@@ -46,7 +46,7 @@ app.get('/addNumber', function (req, res) {
     };
     res.end(JSON.stringify(response));
  })
- //get data from array
+ //get data from array by id
  app.get('/getArrayDataById', function (req, res) {
   res.writeHead(200, {
     'Content-Type': 'application/json'
@@ -76,7 +76,7 @@ app.get('/addNumber', function (req, res) {
   var node = list.findLast();
   while(node.element!='head')
   {
-    accounts.push(node);
+    accounts.push(node.element);
     node = node.previous;
   }
   // 输出 JSON 格式
@@ -85,7 +85,7 @@ app.get('/addNumber', function (req, res) {
   };
   res.end(JSON.stringify(response));
 })
-//get data from linked list
+//get data from linked list by id
 app.get('/getLinkedDataById', function (req, res) {
   res.writeHead(200, {
     'Content-Type': 'application/json'
@@ -124,3 +124,5 @@ var server = app.listen(3000, function () {
   console.log("App is listening on http://%s:%s", host, port)
 
 })
+
+
